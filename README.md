@@ -1,3 +1,6 @@
+# rstar
+Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest"
+
 This directory contains estimation files in Matlab as well as R to replicate the results in the paper "On Measuring the Natural Rate of Interest" by Daniel Buncic. Data files are also provided, with the latest vintage data in the directory 'R.data.for.estimation.2020.Oct.5'. 
 
 NOTE: All estimates my paper use the earlier vintage data 'R.data.for.estimation.2020.May.28' to exactly replicate the R-File results from HLWs website at the FRBNY. 
