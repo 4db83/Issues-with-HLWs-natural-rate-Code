@@ -185,8 +185,8 @@ sumLL = 0;
 % Pt = zeros(Ka,Ka,T);  Ft_store		= zeros(Ky,Ky,T);		
 
 % MAIN FORWARD LOOP (LOOPING OVER COLUMNS IN MATLAB IS FASTER THAN OVER ROWS)
-% sumLL = kalman_filter_loop_fast(y, D, M, H, C, Phi, SQS, att_1, Ptt_1, T, Ky);
-sumLL = kalman_filter_loop_mex(y, D, M, H, C, Phi, SQS, att_1, Ptt_1, T, Ky);
+sumLL = kalman_filter_loop_fast(y, D, M, H, C, Phi, SQS, att_1, Ptt_1, T, Ky);
+% sumLL = kalman_filter_loop_mex(y, D, M, H, C, Phi, SQS, att_1, Ptt_1, T, Ky);
 
 % for t = 1:T
 % 	% FORECAST ERROR AND ITS MSE

@@ -10,6 +10,11 @@ The repo also provides data files, with the latest vintage of data stored in the
 ### Matlab Users
 If you are a **Matlab** user, go to the **matlab.code** directory and familiarize yourself with the file **'estimate_HLW.m'**. This is the main estimation script for all four countries and produces all Stage 2 and Stage 3 output, as well as the factors, plots etc. There are a number of options for printing and plotting, which need to be enabled/disabled by setting an indicator to 1 or 0 (see PRINT_FACTORS_EXCEL = 0, for instance).
 
+#### Mex
+I have added a mex file for the main KF loop using Armadillo C++ for the computation of the log-likelihood in the numerical optimisation. This is compiled for a Windows machine. I have not compiled it for Mac as yet. 
+
+If you want your code to run somewhat faster, you can got to the **'kalman_filter_loglike.m'** file in the **'./utility.Functions/'** folder and uncomment line 189 to use **kalman_filter_loop_mex** instead of **kalman_filter_loop_fast** on line 188.
+
 ### R Users
 If you are an **R** user, go to the **R.code** directory and familiarize yourself with the file **'fit.HLW.R'**. This is the main file for estimation in R. The estimation results are stored in various **'data/R.HLW.results/'** files for each country of interest and most results are also printed to screen. 
 
