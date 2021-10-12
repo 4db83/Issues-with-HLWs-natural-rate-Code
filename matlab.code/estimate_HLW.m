@@ -28,7 +28,7 @@ if ~exist(latex_table_dir,		'dir');	mkdir(latex_table_dir);			end
 % DEFINDE WHICH VINTAGE OF DATA TO BE USE IN ESTIMATION. THESE ARE STORED IN DIFFERENT DIRECTORIES, 
 DATA_DIR_INPUT	= '../data/R.data.for.estimation.2020.May.28/';		% DATA ENDS IN Q4-2019
 
-for CI = 1:1
+for CI = 1:4
 % for CI = 1:4
 	% DEFINE COUNTRY, IE 
 	COUNTRY		= cntr_{CI};
