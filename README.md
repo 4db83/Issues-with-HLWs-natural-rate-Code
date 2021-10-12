@@ -1,22 +1,18 @@
-# rstar
-Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest"
+## Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest"
+<!-- Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest" -->
 
-This directory contains estimation files in Matlab as well as R to replicate the results in the paper "On Measuring the Natural Rate of Interest" by Daniel Buncic. Data files are also provided, with the latest vintage data in the directory 'R.data.for.estimation.2020.Oct.5'. 
+This repo contains estimation files in Matlab and R to replicate the results in the paper: "On a standard Method for Measuring the Natural Rate of Interest " by Daniel Buncic. The repo also provides data files, with the latest vintage of data stored sin the directory 'R.data.for.estimation.2020.Oct.5'. The R code can be used to automatically update the empirical data, but be aware that it may not be possible to successfully estimate the model due 
 
-NOTE: All estimates my paper use the earlier vintage data 'R.data.for.estimation.2020.May.28' to exactly replicate the R-File results from HLWs website at the FRBNY. 
+NOTE: All estimates in my paper use the earlier vintage data 'R.data.for.estimation.2020.May.28' to exactly replicate the R-File results from HLWs website at the FRBNY. 
 
+## Matlab
 If you are a Matlab users, go to the matlab.code directory and familiarize yourself with the file 'estimate_HLW.m'. This is the main estimation script for all four countries and produces all Stage 2 and Stage 3 output as well as factors, plots etc. There are a number of options for printing and plotting. 
- 
+
+## Matlab 
 If you are a R users, go to the R.code directory and familiarize yourself with the file 'fit.HLW.R'. This is the main file for estimation in R. The estimation results are stored in various 'data/R.HLW.results/' files for each country of interest and most results are also printed to screen. 
 
-Let me know if there are any issues. 
----------------------------------------
-Daniel Buncic, Stockholm.
-Last updated: 06.10.2020.
----------------------------------------
 
-
-The directories are as follows:
+## The directories are as follows:
 1) data
 		- R.data.for.estimation.2020.May.28 -> data created by R in csv format, used in/by Matlab for estimation 
 		- R.data.for.estimation.2020.Oct.5 	-> data created by R in csv format, used in/by Matlab for estimation
