@@ -1,4 +1,4 @@
-### Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest"
+### Replication files for Buncic (2021) "On a standard Method for Measuring the Natural Rate of Interest"
 <!-- Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest" -->
 
 This repo contains estimation files in **Matlab** and **R** to replicate the results in Buncic (2021) "*On a standard Method for Measuring the Natural Rate of Interest*". 
