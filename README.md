@@ -23,7 +23,7 @@ If you are an **R** user, go to the **R.code** directory and familiarize yoursel
 ## The directories structure is as follows:
 ### 1. R.code
 * R.local.Functions: directory with modified R functions from HLWs R code needed for the estimation of the models
-* [fit.HLW.R](\R.code\fit.HLW.R)				:	main R script that replicates the results of the paper
+* [fit.HLW.R](R.code/fit.HLW.R)				:	main R script that replicates the results of the paper
 * [get.CA.data.R](\R.code\get.CA.data.R): gets/makes the Canadian CA.data.csv data and saves the source data in source data dir
 * [get.EA.data.R](\R.code\get.EA.data.R): gets/makes the Euro Area EA.data.csv data and saves the source data in source data dir
 * [get.UK.data.R](\R.code\get.UK.data.R): gets/makes the UK UK.data.csv data and saves the source data in source data dir
