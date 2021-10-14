@@ -55,4 +55,3 @@ If you are an **R** user, go to the **R.code** directory and familiarize yoursel
 
 
 Stockholm, 14.10.2021
-db
