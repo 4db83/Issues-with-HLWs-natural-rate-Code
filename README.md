@@ -1,11 +1,12 @@
-### Replication files for Buncic (2021) "On a standard Method for Measuring the Natural Rate of Interest"
+### Overview
 <!-- Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest" -->
 
-This repo contains estimation files in **Matlab** and **R** to replicate the results in Buncic (2021) "*On a standard Method for Measuring the Natural Rate of Interest*". 
+This repo contains estimation files in **Matlab** and **R** to replicate the results in Buncic (2021) "*On a standard Method for Measuring the Natural Rate of Interest*". All estimates reported in the paper use the *'earlier'* vintage data contained in the directory **'R.data.for.estimation.2020.May.28'**. Make sure to use that vintage of data to exactly replicate the numerical results that are reported in the paper. 
 
-The repo also provides data files, with the latest vintage of data stored in the directory **'R.data.for.estimation.2020.Oct.5'**. The R code can be used to automatically update the empirical data, but be aware that it may not be possible to successfully estimate the model due 
+The provided **R** code can also be used to automatically update the empirical data for all four estimates, but be aware that it may be difficult to estimate the model satisfactorily because of the sharp drops in GDP due to the pandemic. The input data can be updated by using any of the **'get.XX.data.R'** R scripts, which will automatically download the "raw" source data and then perform the required transformations and splicing of data to produce the final data set use in the analysis.
 
-**NOTE:** All estimates reported in the paper use the *'earlier'* vintage data contained in the directory **'R.data.for.estimation.2020.May.28'**. Make sure to use that vintage of data to exactly replicate the results that are reported. If the input data is updated by using any of the **'get.XX.data.R'** R scripts, the results will be quantitatively different. 
+<!-- The repo also provides data files, with the latest vintage of data stored in the directory **'R.data.for.estimation.2020.Oct.5'**. The R code can be used to automatically update the empirical data, but be aware that it may not be possible to successfully estimate the model due  -->
+<!-- **NOTE:** All estimates reported in the paper use the *'earlier'* vintage data contained in the directory **'R.data.for.estimation.2020.May.28'**. Make sure to use that vintage of data to exactly replicate the results that are reported. If the input data is updated by using any of the **'get.XX.data.R'** R scripts, the results will be quantitatively different.  -->
 
 ### Matlab Users
 If you are a **Matlab** user, go to the **matlab.code** directory and familiarize yourself with the file **'estimate_HLW.m'**. This is the main estimation script for all four countries and produces all Stage 2 and Stage 3 output, as well as the factors, plots etc. There are a number of options for printing and plotting, which need to be enabled/disabled by setting an indicator to 1 or 0 (see PRINT_FACTORS_EXCEL = 0, for instance).
@@ -53,3 +54,5 @@ If you are an **R** user, go to the **R.code** directory and familiarize yoursel
 	- US_results.txt: all Matlab estimation results in stored in text file
 
 
+Stockholm, 14.10.2021
+db
