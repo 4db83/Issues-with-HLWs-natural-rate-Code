@@ -28,7 +28,7 @@ if ~exist(latex_table_dir,		'dir');	mkdir(latex_table_dir);			end
 % DEFINDE WHICH VINTAGE OF DATA TO BE USE IN ESTIMATION. THESE ARE STORED IN DIFFERENT DIRECTORIES, 
 DATA_DIR_INPUT	= '../data/R.data.for.estimation.2020.May.28/';		% DATA ENDS IN Q4-2019
 
-for CI = 1:4
+for CI = 4
 % for CI = 1:4
 	% DEFINE COUNTRY, IE 
 	COUNTRY		= cntr_{CI};
@@ -41,7 +41,7 @@ for CI = 1:4
 	PLOT_GDP_RR		= 0;
 	PRINT_PLOT_TO_PDF		= 0;
 	PRINT_FACTORS_EXCEL = 0;
-	PRINT_RESULTS_LATEX = 0;
+	PRINT_RESULTS_LATEX = 1;
 	% KEEP A LOG FILE USING THE DIARY FUNCTION
 	DIARY_ON = 0;
 
@@ -747,11 +747,11 @@ for CI = 1:4
 		TS2a(end-1,:) = [];
 		TS2b	= TS2(end-1,:);
 
-		LT_S21a = latexmat(rowNames, [TS2a], '{\hsp[2]---}', 'nomath', '% 4.10f');
-		fid	= fopen([latex_table_dir 'Table_S2a_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_S21a); fclose(fid);
-
-		LT_S21b = latexmat({'{Log-likelihood}'}, [TS2b], [], 'nomath', '% 4.10f');
-		fid	= fopen([latex_table_dir 'Table_S2b_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_S21b); fclose(fid);
+ 		LT_S21a = latexmat(rowNames, [TS2a], '{\hsp[7]---}', 'nomath', '% 4.8f');
+ 		fid	= fopen([latex_table_dir 'Table_S2a_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_S21a); fclose(fid);
+% 
+ 		LT_S21b = latexmat({'{Log-likelihood}'}, [TS2b], [], 'nomath', '% 4.8f');
+ 		fid	= fopen([latex_table_dir 'Table_S2b_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_S21b); fclose(fid);
 
 		% ---------------------------------------------------------------------------------------------------
 		% now S2 MUE results
@@ -766,8 +766,8 @@ for CI = 1:4
 							struct2array(Chow2_g      )' , struct2array(low_C_g)'		, struct2array(up_C_g)'			, ...
 							struct2array(Chow2_M0g    )' , struct2array(low_C_M0g)'	, struct2array(up_C_M0g)'		];
 
-		LT_1a = latexmat(rowNames, [Lz_TV inf(4,1) Lz_C],'{\hsp[2]---}', 'nomath', '% 4.8f');
-		fid		= fopen([latex_table_dir 'Table_MUEa_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_1a); fclose(fid);
+ 		LT_1a = latexmat(rowNames, [Lz_TV inf(4,1) Lz_C],'{\hsp[3]---}', 'nomath', '% 4.6f');
+ 		fid		= fopen([latex_table_dir 'Table_MUEa_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_1a); fclose(fid);
 
 		% Fstatistics
 		F_TV  = [	struct2array(bstat2_RFile  )' , ...
@@ -779,8 +779,8 @@ for CI = 1:4
 							struct2array(bstat2_C_g   )'  , struct2array(pvals_C_g		)' , ...
 							struct2array(bstat2_C_M0g )'  , struct2array(pvals_C_M0g )' ];
 
-		LT_1b = latexmat(rowNames, [F_TV inf(4,1) F_C],'{\hsp[2]---}', 'nomath', '% 4.8f');
-		fid		= fopen([latex_table_dir 'Table_MUEb_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_1b); fclose(fid);
+		LT_1b = latexmat(rowNames, [F_TV inf(4,1) F_C],'{\hsp[3]---}', 'nomath', '% 4.6f');
+ 		fid		= fopen([latex_table_dir 'Table_MUEb_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_1b); fclose(fid);
 
 		% ---------------------------------------------------------------------------------------------------
 		% S3 MLE results
@@ -793,10 +793,10 @@ for CI = 1:4
 		TS3a(end-2,:) = [];
 		TS3b	= TS3(end-2,:);
 
-		LT_S31a = latexmat(rowNames, [TS3a], '{\hsp[8]---}', 'nomath', '% 4.10f');
+		LT_S31a = latexmat(rowNames, [TS3a], '{\hsp[8]---}', 'nomath', '% 4.8f');
 		fid	= fopen([latex_table_dir 'Table_S3a_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_S31a); fclose(fid);
 
-		LT_S31b = latexmat({'{Log-likelihood}'}, [TS3b], [], 'nomath', '% 4.10f');
+		LT_S31b = latexmat({'{Log-likelihood}'}, [TS3b], [], 'nomath', '% 4.8f');
 		fid	= fopen([latex_table_dir 'Table_S3b_' COUNTRY '.tex'],'wt'); fprintf(fid, '%s\n', LT_S31b); fclose(fid);
 
 		disp('  --- >   Results written to latex tables to table.input')

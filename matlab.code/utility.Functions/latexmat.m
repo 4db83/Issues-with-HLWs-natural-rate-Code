@@ -197,8 +197,10 @@ S = strrep(S,'Inf', '');
 %   ex = ex + min(findstr(S(ex+1:end),'E'));
 % end
 
-% For good form, remove that last '\\'.
-S(end-2:end-1) = '';              %% commented out by Daniel Buncic
+% --------------------------------------------------------------------------------------------------
+% For good form, remove that last '\\'. end of column
+% --------------------------------------------------------------------------------------------------
+% S(end-2:end-1) = '';              %% commented out by Daniel Buncic
 % if remove_last_ == 1
 % 	S(end-2:end-1) = '';              %% commented out by Daniel Buncic
 % end																	
