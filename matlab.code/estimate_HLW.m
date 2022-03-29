@@ -28,7 +28,7 @@ if ~exist(latex_table_dir,		'dir');	mkdir(latex_table_dir);			end
 % DEFINDE WHICH VINTAGE OF DATA TO BE USE IN ESTIMATION. THESE ARE STORED IN DIFFERENT DIRECTORIES, 
 DATA_DIR_INPUT	= '../data/R.data.for.estimation.2020.May.28/';		% DATA ENDS IN Q4-2019
 
-for CI = 4
+for CI = 1
 % for CI = 1:4
 	% DEFINE COUNTRY, IE 
 	COUNTRY		= cntr_{CI};
@@ -36,12 +36,12 @@ for CI = 4
 	SMPL_END	= 'Q4-2019'; 
 	% SET VARIOUS PLOTTING AND DATA READING/WRITING 
 	CSV_READ			= 0;				% SET TO 1 TO READ NEW DATA FROM CSV FILE, OTHERWISE LOAD THE .MAT CONVERTED FILE
-	PLOT_ON				= 1;
-	PLOT_F_STATS	= 0;
+	PLOT_ON				= 0;
+	PLOT_F_STATS	= 1;
 	PLOT_GDP_RR		= 0;
 	PRINT_PLOT_TO_PDF		= 0;
 	PRINT_FACTORS_EXCEL = 0;
-	PRINT_RESULTS_LATEX = 1;
+	PRINT_RESULTS_LATEX = 0;
 	% KEEP A LOG FILE USING THE DIARY FUNCTION
 	DIARY_ON = 0;
 
@@ -335,7 +335,7 @@ for CI = 4
 	tabS2 = table(par_names2, S2_initVals, S2_Rfile, S2_replicated, S2_MLE_g, S2_MLE_M0g, S2_MLE_M0g_C);% , S2_replicated, S2_MLE_g);
 	fprintf('														Stage 2 Results           \n')
 	sep(120)
-	print2screen(tabS2, '%16.10f') 
+	print2screen(tabS2, '%16.10f')
 
 	%% **********************************************************************************************************
 	%																	MUE FOR STAGE 2 begins here 
@@ -828,11 +828,15 @@ for CI = 4
 		set(gca,'GridLineStyle',':','GridAlpha',1/3)
 		setoutsideTicks
 		add2yaxislabel
-		subtitle('(a) Misspecified: $GY_t = a_{y}(L)\tilde{y}_{t}-a_{r}(L)r_{t}-a_{g}g_{t-1}-a_{0}$', p.aj, p.fs+1, 1)
+% 		subtitle('(a) Misspecified: $GY_t = a_{y}(L)\tilde{y}_{t}-a_{r}(L)r_{t}-a_{g}g_{t-1}-a_{0}$', p.aj, p.fs+1, 1)
+		subtitle('(a) HLW''s (misspecified) Stage 2 model (right column block of equation 6)', p.aj, p.fs+1, 0)    
 							% subtitle('Demeand series', -1.22, 14, 1)					
-		legendflex({'Time varying \bf\phi';
-								'Constant \bf\phi'}, ...
-								'Interpreter','Tex','anchor', 3*ones(1,2))
+% 		legendflex({'Time varying \bf\phi';
+% 								'Constant \bf\phi'}, ...
+% 								'Interpreter','Tex','anchor', 3*ones(1,2))
+ 		legendflex({'HLW';
+								'SW'}, ...
+								'anchor', 3*ones(1,2))
 
 		subplot(2,1,2)
 		hold on;
@@ -846,14 +850,20 @@ for CI = 4
 		set(gca,'GridLineStyle',':','GridAlpha',1/3)
 		setoutsideTicks
 		add2yaxislabel
-		subtitle('(b) Correctly specified: $GY_{t}=a_{y}(L)\tilde{y}_{t}-a_{r}(L)[r_{t}-4g_{t}]$', p.aj, p.fs+1, 1)
+% 		subtitle('(b) Correctly specified: $GY_{t}=a_{y}(L)\tilde{y}_{t}-a_{r}(L)[r_{t}-4g_{t}]$', p.aj, p.fs+1, 1)
+		subtitle('(b) Correct Stage 2 model (left column block in equation 6)', p.aj, p.fs+1)    
 
-		legendflex({'Time varying \bf\phi';
-								'Constant \bf\phi'}, ...
-								'Interpreter','Tex','anchor', 3*ones(1,2))
+% 		legendflex({'Time varying \bf\phi';
+% 								'Constant \bf\phi'}, ...
+% 								'Interpreter','Tex','anchor', 3*ones(1,2))
+
+ 		legendflex({'HLW';
+								'SW'}, ...
+								'anchor', 3*ones(1,2))
 
 		fstat_fig_outname = [ COUNTRY '_Fstat_MUE2_' SMPL_END ];
 		if PRINT_PLOT_TO_PDF == 1; print2pdf(fstat_fig_outname, latex_graphics_dir); end
+%     print2pdf(fstat_fig_outname, latex_graphics_dir)
 	end
 	
 	%% PLOT GDP GROWTH AND REAL RATE
