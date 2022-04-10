@@ -28,7 +28,7 @@ if ~exist(latex_table_dir,		'dir');	mkdir(latex_table_dir);			end
 % DEFINDE WHICH VINTAGE OF DATA TO BE USE IN ESTIMATION. THESE ARE STORED IN DIFFERENT DIRECTORIES, 
 DATA_DIR_INPUT	= '../data/R.data.for.estimation.2020.May.28/';		% DATA ENDS IN Q4-2019
 
-for CI = 1
+for CI = 1:4
 % for CI = 1:4
 	% DEFINE COUNTRY, IE 
 	COUNTRY		= cntr_{CI};
@@ -36,8 +36,8 @@ for CI = 1
 	SMPL_END	= 'Q4-2019'; 
 	% SET VARIOUS PLOTTING AND DATA READING/WRITING 
 	CSV_READ			= 0;				% SET TO 1 TO READ NEW DATA FROM CSV FILE, OTHERWISE LOAD THE .MAT CONVERTED FILE
-	PLOT_ON				= 0;
-	PLOT_F_STATS	= 1;
+	PLOT_ON				= 1;
+	PLOT_F_STATS	= 0;
 	PLOT_GDP_RR		= 0;
 	PRINT_PLOT_TO_PDF		= 0;
 	PRINT_FACTORS_EXCEL = 0;
@@ -686,17 +686,6 @@ for CI = 1
   	xlswrite(factors_xls_name, cellstr(factor_names_short), 			'Filtered', 'L2')
   	xlswrite(factors_xls_name, HLW.gz.att									, 			'Filtered', 'L3') 
 
-% THESE ARE NOT REPORTED IN THE PAPER  
-%   	% filtered factors Baseline replication
-%   	xlswrite(factors_xls_name, cellstr('Baseline Replicated'),		'Filtered', 'G1')
-%   	xlswrite(factors_xls_name, cellstr(factor_names_short), 			'Filtered', 'G2')
-%   	xlswrite(factors_xls_name, HLW.bl.att									, 			'Filtered', 'G3') 
-  
-%   	% filtered factors MLE(g)
-%   	xlswrite(factors_xls_name, cellstr('MLE(g|Lambda_g^HLW)'), 		'Filtered', 'L1')
-%   	xlswrite(factors_xls_name, cellstr(factor_names_short), 			'Filtered', 'L2')
-%   	xlswrite(factors_xls_name, HLW.g.att									, 			'Filtered', 'L3') 
-  
   	%%%  SMOOTHED
   	% dates
   	xlswrite(factors_xls_name, cellstr('Dates')									, 'Smoothed', 'A2')
@@ -717,18 +706,6 @@ for CI = 1
   	xlswrite(factors_xls_name, cellstr(factor_names_short), 			'Smoothed', 'L2')
   	xlswrite(factors_xls_name, HLW.gz.atT									, 			'Smoothed', 'L3') 
 
-% THESE ARE NOT REPORTED IN THE PAPER
-%   	% smoothed factors Baseline replication
-%   	xlswrite(factors_xls_name, cellstr('Baseline Replicated'),		'Smoothed', 'Q1')
-%   	xlswrite(factors_xls_name, cellstr(factor_names_short), 			'Smoothed', 'Q2')
-%   	xlswrite(factors_xls_name, HLW.bl.atT									, 			'Smoothed', 'Q3') 
-%   
-%   	% smoothed factors MLE(g)
-%   	xlswrite(factors_xls_name, cellstr('MLE(g|Lambda_g^HLW)'), 		'Smoothed', 'V1')
-%   	xlswrite(factors_xls_name, cellstr(factor_names_short), 			'Smoothed', 'V2')
-%   	xlswrite(factors_xls_name, HLW.g.atT									, 			'Smoothed', 'V3') 
-
-  
   	disp([' Factors printed to excel file ' factors_xls_name])
   	
   	% delete the Sheet1 excel sheet, needs absolute path input
@@ -944,51 +921,8 @@ for CI = 1
 	
 end % end of country loop
 
-%% ESTIMATE AN AR model
-% AR_names = @(AR_order) (cellstr([repmat('AR(' ,AR_order,1) num2str([1:AR_order]') repmat(')',AR_order,1)]));
-% AR_order	= 2;
-% AR_out		= ols(gdp_rr,mlag(gdp_rr,AR_order),0,AR_names(AR_order)');
-% AR_mu			= AR_out.bhat(1)/(1-sum(AR_out.bhat(2:end)));
-% disp(AR_mu)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 % EOF end of file 
-	% ---------------------------------------------------------------------------------------------
-	% 	figure('WindowState','maximized','Position',[1441 641 1200 1843]);
-	% 	figure('WindowState','maximized','Position',[1 641 1200 1843]);
-	%		figure('WindowState','maximized','Position',[-1441 641 1200 1843]);
-	% ---------------------------------------------------------------------------------------------
 
 
