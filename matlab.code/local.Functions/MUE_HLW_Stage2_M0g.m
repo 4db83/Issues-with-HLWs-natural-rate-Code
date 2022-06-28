@@ -167,7 +167,7 @@ function [Lambdas_out, p_values, Lambda_low_CI, Lambda_up_CI, Lambda_alt] = get_
 	
 	% THIS IS NEEEDED FOR STAGE 2 MUE ONLY FOR QLR STAT REQUIRING Y-XBETA TYPE OF COMPUTATION. 
 	% if there are any nans, find them
-	Inan = find(anynan(testStats'));
+	Inan = find(anynans(testStats'));
 	% now set those to nan
 	if ~isempty(Inan)
 		Lambda_hat(Inan) = nan;

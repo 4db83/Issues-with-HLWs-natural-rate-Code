@@ -24,7 +24,7 @@ SetDefaultValue(5,'INCLUDE_PW',0);	% set to 1 to include pre-whitening in LRV co
 SetDefaultValue(6,'Recession_indicator',[]);
 
 % remove any missing values
-Inan	= anynan([y x]);
+Inan	= anynans([y x]);
 y = y(~Inan,:); 
 x = x(~Inan,:);
 

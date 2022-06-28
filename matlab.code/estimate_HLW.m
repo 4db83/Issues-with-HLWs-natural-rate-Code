@@ -916,9 +916,6 @@ for CI = 1:4
 		if PRINT_PLOT_TO_PDF == 1; print2pdf(acfplot_fig_outname, latex_graphics_dir); end
 	end
 	
-	
-	
-	
 end % end of country loop
 
 

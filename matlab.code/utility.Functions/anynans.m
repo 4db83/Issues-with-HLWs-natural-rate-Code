@@ -1,4 +1,4 @@
-function [Inan, varargout] = anynan(X,Y)
+function [Inan, varargout] = anynans(X,Y)
 % find any rows with NANs in regressor matrix X and also in Y if inputed and return indicator Inan
 % useful for workign with time series data that has been lagged by mlag or differenced by delta.
 % can be used to trim out the require entries for OLS etc. 

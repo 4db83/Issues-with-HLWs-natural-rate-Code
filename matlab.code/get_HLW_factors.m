@@ -3,7 +3,7 @@ clear; clc; tic;
 set(groot,'defaultLineLineWidth',2); % sets the default linewidth to 1.5;
 % ADD LOCAL FUNCTION PATH WITHOUT SUBFOLDERS (IE. '_OLD') (only add what is needed)
 addpath('local.Functions','utility.Functions');
-GET_FROM_FRBNY		= 1;
+GET_FROM_FRBNY		= 0;
 SAVE_HLW_FACTORS	= 0;
 
 % file locations
