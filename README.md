@@ -1,7 +1,7 @@
 ## Overview
 <!-- Replication files for Buncic, D. (2021) "On a standard Method for Measuring the Natural Rate of Interest" -->
 
-This repo contains estimation files in **Matlab** and **R** to replicate the results in [Buncic (2021) "*On a standard Method for Measuring the Natural Rate of Interest*"](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725151). All estimates reported in the paper use the *'earlier'* vintage data contained in the directory **'R.data.for.estimation.2020.May.28'**. Make sure to use that vintage of data to exactly replicate the numerical results that are reported in the paper. 
+This repo contains estimation files in **Matlab** and **R** to replicate the results in [Buncic (2022) "*On a standard Method for Measuring the Natural Rate of Interest*"](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3725151). All estimates reported in the paper use the *'earlier'* vintage data contained in the directory **'R.data.for.estimation.2020.May.28'**. Make sure to use that vintage of data to exactly replicate the numerical results that are reported in the paper. 
 
 The provided **R** code can also be used to automatically update the empirical data for all four estimates, but be aware that it may be difficult to estimate the model satisfactorily because of the sharp drops in GDP due to the pandemic. The input data can be updated by using any of the **'get.XX.data.R'** R scripts, which will automatically download the "raw" source data and then perform the required transformations and splicing of data to produce the final data set use in the analysis.
 
