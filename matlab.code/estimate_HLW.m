@@ -28,14 +28,14 @@ if ~exist(latex_table_dir,		'dir');	mkdir(latex_table_dir);			end
 % DEFINDE WHICH VINTAGE OF DATA TO BE USE IN ESTIMATION. THESE ARE STORED IN DIFFERENT DIRECTORIES, 
 DATA_DIR_INPUT	= '../data/R.data.for.estimation.2020.May.28/';		% DATA ENDS IN Q4-2019
 
-for CI = 1:4
 % for CI = 1:4
+for CI = 1
 	% DEFINE COUNTRY, IE 
 	COUNTRY		= cntr_{CI};
 	% DEFINE SAMPLE-END. NOTE IF DATA IN CSV/MAT FILE WHICH IS READ IS LESS THAN SMPL_END, DATA ENDS THERE.
 	SMPL_END	= 'Q4-2019'; 
 	% SET VARIOUS PLOTTING AND DATA READING/WRITING 
-	CSV_READ			= 0;				% SET TO 1 TO READ NEW DATA FROM CSV FILE, OTHERWISE LOAD THE .MAT CONVERTED FILE
+	CSV_READ			= 1;				% SET TO 1 TO READ NEW DATA FROM CSV FILE, OTHERWISE LOAD THE .MAT CONVERTED FILE
 	PLOT_ON				= 1;
 	PLOT_F_STATS	= 0;
 	PLOT_GDP_RR		= 0;
@@ -160,7 +160,11 @@ for CI = 1:4
 	% ---------------------------------------------------------------------------------------------------
 	% function handle to load the HLW R output paramters etc
 	getS = @(x) ([HLW_INPUT_DATA_DIR COUNTRY '/' x '.csv']);
-	HLW_Stage3_R_File		= xlsread( getS([Sstr(3) hlw_read_sample]) );
+	% NOTE: CHANGE TO READMATRIX INSTEAD OF XLSREAD AS IT WAS CREATING BACKWARD COMPATIBILITY ISSUES
+  % HLW_Stage3_R_File		= xlsread( getS([Sstr(3) hlw_read_sample]) );
+  HLW_Stage3_R_File_tmp	= readmatrix( getS([Sstr(3) hlw_read_sample]) );
+  HLW_Stage3_R_File     = HLW_Stage3_R_File_tmp(:,2:end);
+
 	% THESE ARE THE INTIAL VALUES USED BY HLW (FIRST COLUMN OF HLW2017_THETA)
 	HLW_initvals_R_File	= HLW_Stage3_R_File(1:8,1);
 	% these are their estimates
@@ -256,7 +260,10 @@ for CI = 1:4
 	% make data with intercept in last entry
 	data_in_C		= [Y X ones(T,1)]';		
 	% ---------------------------------------------------------------------------------------------------
-	HLW_Stage2_R_File	= xlsread( getS([Sstr(2) hlw_read_sample]));
+	% NOTE: CHANGE TO READMATRIX INSTEAD OF XLSREAD AS IT WAS CREATING BACKWARD COMPATIBILITY ISSUES
+  % HLW_Stage2_R_File	= xlsread( getS([Sstr(2) hlw_read_sample]));
+  HLW_Stage2_R_File_tmp	= readmatrix( getS([Sstr(2) hlw_read_sample]));
+  HLW_Stage2_R_File	    = HLW_Stage2_R_File_tmp(:,2:end);
 
 	% read from Stage 2 R-Code output
 	other_pars_S2.a00 = dlmread( getS([Sa00(2) hlw_read_sample]) ,',',0,0);
